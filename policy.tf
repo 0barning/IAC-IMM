@@ -4,11 +4,11 @@ data "intersight_organization_organization" "org" {
 
 
 
-resource "intersight_server_profile" "IMM-ESXi-01" {
-  name   = "IMM-ESXi-01"
+resource "intersight_server_profile" "IMM-ESXi-02" {
+  name   = "IMM-ESXi-02"
   action = "No-op"
   target_platform = "FIAttached"
-  
+
   tags {
     key   = "deployment_type"
     value = "terraform"
