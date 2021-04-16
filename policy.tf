@@ -19,7 +19,7 @@ resource "intersight_server_profile" "IMM-ESXi-02" {
   }
 }
 
-resource "intersight_bios_policy" "IMM-Bios-Policy" {
+resource "intersight_bios_policy" "Ibios_policy1" {
   name                                  = "IMM-Bios-Policy"
   description                           = "Created by Terraform"
   acs_control_gpu1state                 = "platform-default"
@@ -150,7 +150,7 @@ resource "intersight_bios_policy" "IMM-Bios-Policy" {
   core_multi_processing                 = "2"
   cpu_energy_performance                = "performance"
   cpu_frequency_floor                   = "platform-default"
-  cpu_performance                       = "enterpise"
+  cpu_performance                       = "custom"
   cpu_power_management                  = "custom"
   demand_scrub                          = "platform-default"
   direct_cache_access                   = "platform-default"
@@ -167,7 +167,7 @@ resource "intersight_bios_policy" "IMM-Bios-Policy" {
   intel_hyper_threading_tech            = "platform-default"
   intel_speed_select                    = "Base"
   intel_turbo_boost_tech                = "platform-default"
-  intel_virtualization_technology       = "platform-default"
+  intel_virtualization_technology       = "enabled"
   ioh_error_enable                      = "Yes"
   ip_prefetch                           = "platform-default"
   kti_prefetch                          = "platform-default"
@@ -273,4 +273,8 @@ resource "intersight_bios_policy" "IMM-Bios-Policy" {
   serial_port_aenable                   = "platform-default"
   tpm_control                           = "platform-default"
   txt_support                           = "platform-default"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
 }
