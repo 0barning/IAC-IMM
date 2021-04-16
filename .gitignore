@@ -1,1 +1,8 @@
 terraform.tfvars
+terraform.tfstate
+.terraform/providers/registry.terraform.io/ciscodevnet/intersight/1.0.5/darwin_amd64/CHANGELOG.md
+.terraform.lock.hcl
+terraform.tfstate.backup
+.terraform/providers/registry.terraform.io/ciscodevnet/intersight/1.0.5/darwin_amd64/LICENSE
+.terraform/providers/registry.terraform.io/ciscodevnet/intersight/1.0.5/darwin_amd64/terraform-provider-intersight_v1.0.5
+.terraform/providers/registry.terraform.io/ciscodevnet/intersight/1.0.5/darwin_amd64/README.md
