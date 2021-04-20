@@ -150,7 +150,7 @@ resource "intersight_bios_policy" "bios_policy1" {
   intel_hyper_threading_tech            = "disabled"
   intel_speed_select                    = "Base"
   intel_turbo_boost_tech                = "disabled"
-  intel_virtualization_technology       = "disabled"
+  intel_virtualization_technology       = "enabled"
   ioh_error_enable                      = "Yes"
   ip_prefetch                           = "disabled"
   kti_prefetch                          = "disabled"
