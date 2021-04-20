@@ -265,7 +265,7 @@ resource "intersight_bios_policy" "bios_policy1" {
 resource "intersight_boot_precision_policy" "boot_precision1" {
   name                     = "Boot_Policy_by_Terraform"
   description              = "Created by Terraform"
-  configured_boot_mode     = "UEFI"
+  configured_boot_mode     = "Uefi"
   enforce_uefi_secure_boot = false
   organization {
     object_type = "organization.Organization"
