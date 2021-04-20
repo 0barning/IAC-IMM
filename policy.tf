@@ -256,7 +256,7 @@ resource "intersight_bios_policy" "bios_policy1" {
   serial_port_aenable                   = "disabled"
   tpm_control                           = "disabled"
   txt_support                           = "disabled"
-}  organization {
+  organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org.results[0].moid
   }
