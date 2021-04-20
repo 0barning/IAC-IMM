@@ -131,7 +131,7 @@ resource "intersight_bios_policy" "Ibios_policy1" {
   cmci_enable                           = "platform-default"
   config_tdp                            = "platform-default"
   core_multi_processing                 = "2"
-  cpu_energy_performance                = "balanced-power"
+  cpu_energy_performance                = "performance"
   cpu_frequency_floor                   = "platform-default"
   cpu_performance                       = "custom"
   cpu_power_management                  = "custom"
