@@ -2,7 +2,7 @@ data "intersight_organization_organization" "org" {
     name = var.organization
 }
 
-resource "intersight_bios_policy" "Ibios_policy1" {
+resource "intersight_bios_policy" "intersight_bios_policy1" {
   name                                  = "ESXi-Bios-Policy-By-Terraform"
   description                           = "Created by Terraform"
   acs_control_gpu1state                 = "platform-default"
