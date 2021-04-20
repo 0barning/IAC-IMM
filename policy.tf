@@ -262,3 +262,18 @@ resource "intersight_bios_policy" "bios_policy1" {
   }
 }
 
+resource "intersight_boot_precision_policy" "boot_precision1" {
+  name                     = "Boot_Policy_by_Terraform"
+  description              = "Created by Terraform"
+  configured_boot_mode     = "UEFI"
+  enforce_uefi_secure_boot = false
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  boot_devices {
+    enabled     = true
+    name        = "device-sdcard"
+    object_type = "boot.SdCard"
+  }
+}
