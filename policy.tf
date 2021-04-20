@@ -3,7 +3,7 @@ data "intersight_organization_organization" "org" {
 }
 
 resource "intersight_bios_policy" "Ibios_policy1" {
-  name                                  = "IMM-Bios-Policy"
+  name                                  = "ESXi-Bios-Policy"
   description                           = "Created by Terraform"
   acs_control_gpu1state                 = "platform-default"
   acs_control_gpu2state                 = "platform-default"
