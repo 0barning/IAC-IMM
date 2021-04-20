@@ -3,7 +3,7 @@ data "intersight_organization_organization" "org" {
 }
 
 resource "intersight_bios_policy" "Ibios_policy1" {
-  name                                  = "ESXi-Bios-Policy"
+  name                                  = "ESXi-Bios-Policy-By-Terraform"
   description                           = "Created by Terraform"
   acs_control_gpu1state                 = "platform-default"
   acs_control_gpu2state                 = "platform-default"
@@ -131,7 +131,7 @@ resource "intersight_bios_policy" "Ibios_policy1" {
   cmci_enable                           = "platform-default"
   config_tdp                            = "platform-default"
   core_multi_processing                 = "2"
-  cpu_energy_performance                = "performance"
+  cpu_energy_performance                = "balanced-power"
   cpu_frequency_floor                   = "platform-default"
   cpu_performance                       = "custom"
   cpu_power_management                  = "custom"
@@ -147,7 +147,7 @@ resource "intersight_bios_policy" "Ibios_policy1" {
   hardware_prefetch                     = "platform-default"
   hwpm_enable                           = "HWPM Native Mode"
   imc_interleave                        = "1-way Interleave"
-  intel_hyper_threading_tech            = "platform-default"
+  intel_hyper_threading_tech            = "Change"
   intel_speed_select                    = "Base"
   intel_turbo_boost_tech                = "platform-default"
   intel_virtualization_technology       = "enabled"
@@ -261,3 +261,4 @@ resource "intersight_bios_policy" "Ibios_policy1" {
     moid        = data.intersight_organization_organization.org.results[0].moid
   }
 }
+
