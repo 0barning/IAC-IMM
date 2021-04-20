@@ -251,7 +251,7 @@ resource "intersight_bios_policy" "bios_policy1" {
   intel_vtdats_support                  = "disabled"
   post_error_pause                      = "disabled"
   tpm_support                           = "disabled"
-  qpi_link_frequency                    = "7.2-gt/s"
+  qpi_link_frequency                    = "auto"
   qpi_snoop_mode                        = "auto"
   serial_port_aenable                   = "disabled"
   tpm_control                           = "disabled"
