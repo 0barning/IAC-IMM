@@ -278,10 +278,10 @@ resource "intersight_boot_precision_policy" "boot_precision1" {
   }
   boot_devices {
     enabled     = true
-    name        = "NIIODCIMCDVD"
+    name        = "KVM-DVD"
     object_type = "boot.VirtualMedia"
     additional_properties = jsonencode({
-      Subtype = "cimc-mapped-dvd"
+      Subtype = "kvm-mapped-dvd"
     })
   }
 }
