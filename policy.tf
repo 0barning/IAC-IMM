@@ -276,4 +276,11 @@ resource "intersight_boot_precision_policy" "boot_precision1" {
     name        = "device-sdcard"
     object_type = "boot.SdCard"
   }
+  boot_devices {
+    enabled     = true
+    name        = "NIIODCIMCDVD"
+    object_type = "boot.VirtualMedia"
+    additional_properties = jsonencode({
+      Subtype = "cimc-mapped-dvd"
+    })
 }
