@@ -283,4 +283,5 @@ resource "intersight_boot_precision_policy" "boot_precision1" {
     additional_properties = jsonencode({
       Subtype = "cimc-mapped-dvd"
     })
+  }
 }
