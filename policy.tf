@@ -2,270 +2,48 @@ data "intersight_organization_organization" "org" {
     name = var.organization
 }
 
+#####################
+# Bios Policy       #
+#####################
+
 resource "intersight_bios_policy" "bios_policy1" {
-  name                                  = "ESXi_BIOS_Policy_by_Terraform"
-  description                           = "Created by Terraform"
-  acs_control_gpu1state                 = "platform-default"
-  acs_control_gpu2state                 = "platform-default"
-  acs_control_gpu3state                 = "platform-default"
-  acs_control_gpu4state                 = "platform-default"
-  acs_control_gpu5state                 = "platform-default"
-  acs_control_gpu6state                 = "platform-default"
-  acs_control_gpu7state                 = "platform-default"
-  acs_control_gpu8state                 = "platform-default"
-  acs_control_slot11state               = "platform-default"
-  acs_control_slot12state               = "platform-default"
-  acs_control_slot13state               = "platform-default"
-  acs_control_slot14state               = "platform-default"
-  cdn_support                           = "platform-default"
-  lom_port0state                        = "platform-default"
-  lom_port1state                        = "platform-default"
-  lom_port2state                        = "platform-default"
-  lom_port3state                        = "platform-default"
-  lom_ports_all_state                   = "platform-default"
-  pci_option_ro_ms                      = "platform-default"
-  pci_rom_clp                           = "platform-default"
-  slot10link_speed                      = "Auto"
-  slot10state                           = "platform-default"
-  slot11link_speed                      = "Auto"
-  slot11state                           = "platform-default"
-  slot12link_speed                      = "Auto"
-  slot12state                           = "platform-default"
-  slot13state                           = "platform-default"
-  slot14state                           = "platform-default"
-  slot1link_speed                       = "Auto"
-  slot1state                            = "platform-default"
-  slot2link_speed                       = "Auto"
-  slot2state                            = "platform-default"
-  slot3link_speed                       = "GEN3"
-  slot3state                            = "platform-default"
-  slot4link_speed                       = "Auto"
-  slot4state                            = "platform-default"
-  slot5link_speed                       = "GEN2"
-  slot5state                            = "platform-default"
-  slot6link_speed                       = "Auto"
-  slot6state                            = "platform-default"
-  slot7link_speed                       = "GEN1"
-  slot7state                            = "platform-default"
-  slot8link_speed                       = "Auto"
-  slot8state                            = "platform-default"
-  slot9link_speed                       = "Auto"
-  slot9state                            = "platform-default"
-  slot_flom_link_speed                  = "Auto"
-  slot_front_nvme1link_speed            = "Auto"
-  slot_front_nvme2link_speed            = "Auto"
-  slot_front_slot5link_speed            = "Auto"
-  slot_front_slot6link_speed            = "Auto"
-  slot_gpu1state                        = "platform-default"
-  slot_gpu2state                        = "platform-default"
-  slot_gpu3state                        = "platform-default"
-  slot_gpu4state                        = "platform-default"
-  slot_gpu5state                        = "platform-default"
-  slot_gpu6state                        = "platform-default"
-  slot_gpu7state                        = "platform-default"
-  slot_gpu8state                        = "platform-default"
-  slot_hba_link_speed                   = "Auto"
-  slot_hba_state                        = "platform-default"
-  slot_lom1link                         = "platform-default"
-  slot_lom2link                         = "platform-default"
-  slot_mezz_state                       = "platform-default"
-  slot_mlom_link_speed                  = "Auto"
-  slot_mlom_state                       = "platform-default"
-  slot_mraid_link_speed                 = "Auto"
-  slot_mraid_state                      = "platform-default"
-  slot_n10state                         = "platform-default"
-  slot_n11state                         = "platform-default"
-  slot_n12state                         = "platform-default"
-  slot_n13state                         = "platform-default"
-  slot_n14state                         = "platform-default"
-  slot_n15state                         = "platform-default"
-  slot_n16state                         = "platform-default"
-  slot_n17state                         = "platform-default"
-  slot_n18state                         = "platform-default"
-  slot_n19state                         = "platform-default"
-  slot_n1state                          = "platform-default"
-  slot_n20state                         = "platform-default"
-  slot_n21state                         = "platform-default"
-  slot_n22state                         = "platform-default"
-  slot_n23state                         = "platform-default"
-  slot_n24state                         = "platform-default"
-  slot_n2state                          = "platform-default"
-  slot_n3state                          = "platform-default"
-  slot_n4state                          = "platform-default"
-  slot_n5state                          = "platform-default"
-  slot_n6state                          = "platform-default"
-  slot_n7state                          = "platform-default"
-  slot_n8state                          = "platform-default"
-  slot_n9state                          = "platform-default"
-  slot_raid_link_speed                  = "Auto"
-  slot_raid_state                       = "platform-default"
-  slot_rear_nvme1link_speed             = "Auto"
-  slot_rear_nvme1state                  = "platform-default"
-  slot_rear_nvme2link_speed             = "Auto"
-  slot_rear_nvme2state                  = "platform-default"
-  slot_rear_nvme3state                  = "platform-default"
-  slot_rear_nvme4state                  = "platform-default"
-  slot_rear_nvme5state                  = "platform-default"
-  slot_rear_nvme6state                  = "platform-default"
-  slot_rear_nvme7state                  = "platform-default"
-  slot_rear_nvme8state                  = "platform-default"
-  slot_riser1link_speed                 = "Auto"
-  slot_riser1slot1link_speed            = "Auto"
-  slot_riser1slot2link_speed            = "Auto"
-  slot_riser1slot3link_speed            = "Auto"
-  slot_riser2link_speed                 = "Auto"
-  slot_riser2slot4link_speed            = "Auto"
-  slot_riser2slot5link_speed            = "Auto"
-  slot_riser2slot6link_speed            = "Auto"
-  slot_sas_state                        = "platform-default"
-  slot_ssd_slot1link_speed              = "Auto"
-  slot_ssd_slot2link_speed              = "Auto"
-  adjacent_cache_line_prefetch          = "platform-default"
-  altitude                              = "300-m"
-  auto_cc_state                         = "platform-default"
-  autonumous_cstate_enable              = "platform-default"
-  boot_performance_mode                 = "Max Performance"
-  cbs_cmn_cpu_gen_downcore_ctrl         = "FOUR (2 + 2)"
-  channel_inter_leave                   = "auto"
-  closed_loop_therm_throtl              = "platform-default"
-  cmci_enable                           = "platform-default"
-  config_tdp                            = "platform-default"
-  core_multi_processing                 = "2"
-  cpu_energy_performance                = "performance"
-  cpu_frequency_floor                   = "platform-default"
-  cpu_performance                       = "custom"
-  cpu_power_management                  = "custom"
-  demand_scrub                          = "platform-default"
-  direct_cache_access                   = "platform-default"
-  dram_clock_throttling                 = "Auto"
-  energy_efficient_turbo                = "platform-default"
-  eng_perf_tuning                       = "OS"
-  enhanced_intel_speed_step_tech        = "platform-default"
-  epp_profile                           = "Power"
-  execute_disable_bit                   = "platform-default"
-  extended_apic                         = "platform-default"
-  hardware_prefetch                     = "platform-default"
-  hwpm_enable                           = "HWPM Native Mode"
-  imc_interleave                        = "1-way Interleave"
-  intel_hyper_threading_tech            = "platform-default"
-  intel_speed_select                    = "Base"
-  intel_turbo_boost_tech                = "platform-default"
+  name                                  = "${var.env}_ESXi_BIOS_Policy"
+  description                           = "Performance Settings for ESXi by Terraform"
+  cpu_performance                       = "enterprise"
+  dram_clock_throttling                 = "Performance"
+  direct_cache_access                   = "enabled"
+  enhanced_intel_speed_step_tech        = "enabled"
+  execute_disable_bit                   = "enabled"
+  cpu_frequency_floor                   = "enabled"
+  intel_hyper_threading_tech            = "enabled"
+  intel_turbo_boost_tech                = "enabled"
   intel_virtualization_technology       = "enabled"
-  ioh_error_enable                      = "Yes"
-  ip_prefetch                           = "platform-default"
-  kti_prefetch                          = "platform-default"
-  llc_prefetch                          = "platform-default"
-  memory_inter_leave                    = "platform-default"
-  package_cstate_limit                  = "Auto"
-  patrol_scrub                          = "platform-default"
-  patrol_scrub_duration                 = "platform-default"
-  pc_ie_ssd_hot_plug_support            = "platform-default"
-  processor_c1e                         = "platform-default"
-  processor_c3report                    = "platform-default"
-  processor_c6report                    = "platform-default"
-  processor_cstate                      = "platform-default"
-  pstate_coord_type                     = "HW ALL"
-  pwr_perf_tuning                       = "bios"
-  rank_inter_leave                      = "auto"
-  single_pctl_enable                    = "Yes"
-  smt_mode                              = "Auto"
-  snc                                   = "platform-default"
-  streamer_prefetch                     = "platform-default"
-  svm_mode                              = "platform-default"
-  work_load_config                      = "Balanced"
-  xpt_prefetch                          = "Auto"
-  all_usb_devices                       = "platform-default"
-  legacy_usb_support                    = "platform-default"
-  make_device_non_bootable              = "platform-default"
-  pch_usb30mode                         = "platform-default"
-  usb_emul6064                          = "platform-default"
-  usb_port_front                        = "platform-default"
-  usb_port_internal                     = "platform-default"
-  usb_port_kvm                          = "platform-default"
-  usb_port_rear                         = "platform-default"
-  usb_port_sd_card                      = "platform-default"
-  usb_port_vmedia                       = "platform-default"
-  usb_xhci_support                      = "platform-default"
-  aspm_support                          = "Auto"
-  ioh_resource                          = "IOH0 24k IOH1 40k"
-  memory_mapped_io_above4gb             = "platform-default"
-  mmcfg_base                            = "2 GB"
-  onboard10gbit_lom                     = "platform-default"
-  onboard_gbit_lom                      = "platform-default"
-  sr_iov                                = "platform-default"
-  vga_priority                          = "Onboard"
-  assert_nmi_on_perr                    = "platform-default"
-  assert_nmi_on_serr                    = "platform-default"
-  baud_rate                             = "115200"
-  cdn_enable                            = "platform-default"
-  cisco_adaptive_mem_training           = "platform-default"
-  cisco_debug_level                     = "Minimum"
-  cisco_oprom_launch_optimization       = "platform-default"
-  console_redirection                   = "platform-default"
-  flow_control                          = "rts-cts"
-  frb2enable                            = "platform-default"
-  legacy_os_redirection                 = "platform-default"
-  os_boot_watchdog_timer                = "platform-default"
-  os_boot_watchdog_timer_policy         = "power-off"
-  os_boot_watchdog_timer_timeout        = "15-minutes"
-  out_of_band_mgmt_port                 = "platform-default"
-  putty_key_pad                         = "LINUX"
-  redirection_after_post                = "Always Enable"
-  terminal_type                         = "vt100"
-  ucsm_boot_order_rule                  = "Loose"
-  bme_dma_mitigation                    = "platform-default"
-  cbs_cmn_gnb_nb_iommu                  = "platform-default"
-  cbs_cmn_mem_ctrl_bank_group_swap_ddr4 = "platform-default"
-  cbs_cmn_mem_map_bank_interleave_ddr4  = "Auto"
-  cbs_df_cmn_mem_intlv                  = "Auto"
-  cbs_df_cmn_mem_intlv_size             = "Auto"
-  dcpmm_firmware_downgrade              = "platform-default"
-  smee                                  = "platform-default"
-  boot_option_num_retry                 = "13"
-  boot_option_re_cool_down              = "90"
-  boot_option_retry                     = "platform-default"
-  ipv6pxe                               = "platform-default"
-  onboard_scu_storage_support           = "platform-default"
-  onboard_scu_storage_sw_stack          = "Intel RSTe"
-  pop_support                           = "platform-default"
-  psata                                 = "AHCI"
-  sata_mode_select                      = "AHCI"
-  vmd_enable                            = "platform-default"
-  cbs_cmn_cpu_cpb                       = "Auto"
-  cbs_cmn_cpu_global_cstate_ctrl        = "Auto"
-  cbs_cmn_cpu_l1stream_hw_prefetcher    = "Auto"
-  cbs_cmn_cpu_l2stream_hw_prefetcher    = "Auto"
-  cbs_cmn_determinism_slider            = "Auto"
-  cbs_cmnc_tdp_ctl                      = "Auto"
-  cke_low_policy                        = "auto"
-  dram_refresh_rate                     = "2x"
-  lv_ddr_mode                           = "auto"
-  mirroring_mode                        = "inter-socket"
-  numa_optimized                        = "platform-default"
-  select_memory_ras_configuration       = "mirror-mode-1lm"
-  sparing_mode                          = "dimm-sparing"
-  intel_vt_for_directed_io              = "platform-default"
-  intel_vtd_coherency_support           = "platform-default"
-  intel_vtd_interrupt_remapping         = "platform-default"
-  intel_vtd_pass_through_dma_support    = "platform-default"
-  intel_vtdats_support                  = "platform-default"
-  post_error_pause                      = "platform-default"
-  tpm_support                           = "platform-default"
-  qpi_link_frequency                    = "auto"
-  qpi_snoop_mode                        = "auto"
-  serial_port_aenable                   = "platform-default"
-  tpm_control                           = "platform-default"
-  txt_support                           = "platform-default"
+  processor_cstate                      = "disabled"
+  processor_c1e                         = "disabled"
+  processor_c3report                    = "disabled"
+  processor_c6report                    = "disabled"
+  cpu_power_management                  = "performance"
+  cpu_energy_performance                = "performance"
+  intel_vt_for_directed_io              = "enabled"
+  numa_optimized                        = "enabled"
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org.results[0].moid
   }
+  profiles {
+    object_type = "server.Profile"
+    moid = intersight_server_profile.intersight_server_profile1.moid
+  }
 }
 
+#####################
+# Boot Policy       #
+#####################
+
 resource "intersight_boot_precision_policy" "boot_precision1" {
-  name                     = "Boot_Policy_by_Terraform"
-  description              = "Created by Terraform"
-  configured_boot_mode     = "Uefi"
+  name                     = "${var.env}_Boot_Policy"
+  description              = "ISCSI Boot policy for ESXi hypervisors by Terraform"
+  configured_boot_mode     = "Legacy"
   enforce_uefi_secure_boot = true
   organization {
     object_type = "organization.Organization"
@@ -273,8 +51,20 @@ resource "intersight_boot_precision_policy" "boot_precision1" {
   }
   boot_devices {
     enabled     = true
-    name        = "device-sdcard"
-    object_type = "boot.SdCard"
+    name        = "A"
+    object_type = "boot.Iscsi" 
+    additional_properties = jsonencode({
+      interface_name = "ESXi_ISCSI_A"
+    })
+  }
+  boot_devices {
+    enabled     = true
+    name        = "B"
+    object_type = "boot.Iscsi"
+    additional_properties = jsonencode({
+      interface_name = "ESXi_ISCSI_B"
+      port = 3260
+    })
   }
   boot_devices {
     enabled     = true
@@ -283,5 +73,399 @@ resource "intersight_boot_precision_policy" "boot_precision1" {
     additional_properties = jsonencode({
       Subtype = "kvm-mapped-dvd"
     })
+  }
+  profiles {
+    object_type = "server.Profile"
+    moid = intersight_server_profile.intersight_server_profile1.moid
+  }
+}
+
+#####################
+# vMedia Policy     #
+#####################
+
+resource "intersight_vmedia_policy" "vmedia1" {
+  name          = "${var.env}_vMedia_ESXi67U3_Policy"
+  description   = "Automated installation of ESXi 6.0U7 by Terraform"
+  enabled       = true
+  encryption    = true
+  low_power_usb = true
+  mappings {
+    device_type = "cdd"
+    file_location = "http://172.31.113.41/ESXI-6.7.0.update03-14320388.x86_64.iso"
+    mount_protocol = "http"
+    volume_name = "ESXi-via-HTTP"
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  profiles {
+    object_type = "server.Profile"
+    moid = intersight_server_profile.intersight_server_profile1.moid
+  }
+}
+
+############################
+# iSCSI Adapter Policy     #
+############################
+
+resource "intersight_vnic_iscsi_adapter_policy" "vnic_iscsi_adapter_policy1" {
+  name                = "${var.env}_vNic_iSCSI_Adapter_Policy"
+  description         = "iSCSI Adapter Policy by Terraform"
+  dhcp_timeout        = 60
+  connection_time_out = 0
+  lun_busy_retry_count = 0
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# Eth Adapter Policy     #
+############################
+
+resource "intersight_vnic_eth_adapter_policy" "intersight_vnic_eth_adapter_policy1" {
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+
+  name = "${var.env}_vNic_Eth_Adapter_Policy"
+  description = "Eth Adapter Policy by Terraformt"
+
+  interrupt_scaling = false
+  advanced_filter = false
+
+  vxlan_settings {
+    enabled = false
+  }
+
+  roce_settings {
+    enabled = false
+  }
+
+  nvgre_settings {
+      enabled = false
+  }
+
+  arfs_settings {
+    enabled = false
+  }
+
+    # Defaults
+  uplink_failback_timeout = 5
+
+  completion_queue_settings {
+     nr_count = 5
+     ring_size = 1
+  }
+
+  interrupt_settings {
+    nr_count = 8
+    coalescing_time = 125
+    coalescing_type = "MIN"
+    mode = "MSIx"
+  }
+
+  rss_settings = true
+
+  rss_hash_settings {
+    ipv4_hash = true
+    ipv6_ext_hash = false
+    ipv6_hash = true
+    tcp_ipv4_hash = true
+    tcp_ipv6_ext_hash = false
+    tcp_ipv6_hash = true
+    udp_ipv4_hash = false
+    udp_ipv6_hash = false
+  }
+
+  rx_queue_settings {
+    nr_count = 4
+    ring_size = 512
+  }
+
+  tx_queue_settings{
+    nr_count = 1
+    ring_size = 256
+  }
+
+  tcp_offload_settings {
+    large_receive = true
+    large_send = true
+    rx_checksum = true
+    tx_checksum = true
+  }
+}
+
+############################
+# Network Control Policy   #
+############################
+
+resource "intersight_fabric_eth_network_control_policy" "fabric_eth_network_control_policy1" {
+  name        = "${var.env}_Network_Control_Policy"
+  description = "ESXi Network Control Policy"
+  cdp_enabled = true
+  forge_mac    = "allow"
+  lldp_settings {
+    object_type       = "fabric.LldpSettings"
+    receive_enabled  = false
+    transmit_enabled = true
+  }
+  mac_registration_mode = "allVlans"
+  uplink_fail_action    = "linkDown"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# QoS Policy               #
+############################
+
+resource "intersight_vnic_eth_qos_policy" "intersight_vnic_eth_qos_policy1" {
+  name           = "${var.env}_Eth_QoS_Policy"
+  mtu            = 1500
+  rate_limit     = 0
+  cos            = 0
+  burst          = 10240
+  priority       = "Best Effort"
+  trust_host_cos = false
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# NTP Policy               #
+############################
+
+resource "intersight_ntp_policy" "intersight_ntp_policy1" {
+  name    = "${var.env}_NTP_Policy"
+  description = "NTP Policy"
+  enabled = true
+  ntp_servers = [
+    "ntp1eu.asml.com",
+    "ntp2eu.asml.com",
+    "ntp3eu.asml.com",
+    "ntp4eu.asml.com"
+  ]
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+###############################
+# LAN Connectivity Policy     #
+###############################
+
+resource "intersight_vnic_lan_connectivity_policy" "intersight_vnic_lan_connectivity_policy1" {
+  name             = "${var.env}_LAN_Connectivity_Policy"
+  placement_mode = "custom"
+  target_platform = "FIAttached"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  profiles {
+    object_type = "server.Profile"
+    moid = intersight_server_profile.intersight_server_profile1.moid
+  }
+}
+
+###############################
+# Server Template             #
+###############################
+
+resource "intersight_server_profile_template" "intersight_server_profile_template1" {
+  name             = "${var.env}_Server_Template"
+  target_platform = "FIAttached"
+  action = "Unassign"
+
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+###############################
+# Server Profile              #
+###############################
+
+resource "intersight_server_profile" "intersight_server_profile1" {
+  name   = "${var.env}_ESXi"
+  action = "No-op"
+  target_platform = "FIAttached"
+  tags {
+    key   = "server"
+    value = "demo"
+  }
+ organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# KVM IP Pool              #
+############################
+
+resource "intersight_ippool_pool" "intersight_ip_pool1" {
+  name             = "${var.env}_KVM_IP_Pool"
+  description      = "IP Pool for server KVM console"
+  assignment_order = "sequential"
+  ip_v4_config {
+    gateway     = var.kvmdipgw
+    netmask     = var.kvmdipmask
+    primary_dns = var.primarydns
+    secondary_dns = var.secondarydns
+  }
+  ip_v4_blocks {
+    from        = var.kvmdipfrom
+    to          = var.kvmdipto
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# UUID Pool                #
+############################
+
+resource "intersight_uuidpool_pool" "uuidpool_pool1" {
+  name             = "${var.env}_UUID_Pool"
+  description      = "UUID Pool for all devices"
+  assignment_order = "default"
+  prefix           = "123e4567-e89b-42d3"
+  uuid_suffix_blocks {
+    object_type = "uuidpool.UuidBlock"
+    from        = var.uuidfrom
+    #to         = var.uuidto
+    size        = 128
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# MAC A Pool               #
+############################
+
+resource "intersight_macpool_pool" "intersight_macpool_poolA" {
+  name = "${var.env}_Mac_Pool_Internal_A"
+  description = "Internal MAC Pool for FI A"
+  mac_blocks {
+    object_type = "macpool.Block"
+    from        = var.macafrom
+    to          = var.macato
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# MAC B Pool               #
+############################
+
+resource "intersight_macpool_pool" "intersight_macpool_poolB" {
+  name = "${var.env}_Mac_Pool_Internal_B"
+  description = "Internal MAC Pool for FI B"
+  mac_blocks {
+    object_type = "macpool.Block"
+    from        = var.macbfrom
+    to          = var.macbto
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# IQN Pool                 #
+############################
+
+resource "intersight_iqnpool_pool" "iqnpool_pool1" {
+  name             = "${var.env}_IQN_Pool"
+  description      = "IQN Pool"
+  assignment_order = "sequential"
+  prefix           = var.iqnprefix
+  iqn_suffix_blocks {
+    object_type = "iqn.SuffixBlocks"
+    suffix      = var.iqnsuffix
+    from        = "6757"
+    size        = "100"
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
+
+############################
+# VLAN ESXi MGMT                #
+############################
+
+resource "intersight_fabric_eth_network_group_policy" "intersight_fabric_eth_network_group_policy1" {
+  name             = "${var.env}_ESXi_MGMT_VLAN"
+  description      = "${var.env} VLANs needed on MGMT interface ESXi"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  # Excluding VLANs for eth0, eth1, and FCoE
+  vlan_settings {
+      object_type  = "vnic.VlanSettings"
+      native_vlan = 1
+      allowed_vlans = "11"
+  }
+}
+
+############################
+# VLAN ESXi vMotion        #
+############################
+
+resource "intersight_fabric_eth_network_group_policy" "intersight_fabric_eth_network_group_policy2" {
+  name             = "${var.env}_ESXi_vMotion_VLAN"
+  description      = "${var.env} VLANs needed on vMotion interface ESXi"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  # Excluding VLANs for eth0, eth1, and FCoE
+  vlan_settings {
+      object_type  = "vnic.VlanSettings"
+      native_vlan = 1
+      allowed_vlans = "12"
+  }
+}
+
+############################
+# VLAN ESXi VMs            #
+############################
+
+resource "intersight_fabric_eth_network_group_policy" "intersight_fabric_eth_network_group_policy3" {
+  name             = "${var.env}_ESXi_VM_VLAN"
+  description      = "${var.env} VLANs needed for VMson  ESXi"
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  # Excluding VLANs for eth0, eth1, and FCoE
+  vlan_settings {
+      object_type  = "vnic.VlanSettings"
+      native_vlan = 1
+      allowed_vlans = "11,12,13,14"
   }
 }
