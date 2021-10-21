@@ -315,46 +315,46 @@ resource "intersight_server_profile" "intersight_server_profile1" {
 # KVM IP Pool              #
 ############################
 
-resource "intersight_ippool_pool" "intersight_ip_pool1" {
-  name             = "${var.env}_KVM_IP_Pool"
-  description      = "IP Pool for server KVM console"
-  assignment_order = "sequential"
-  ip_v4_config {
-    gateway     = var.kvmdipgw
-    netmask     = var.kvmdipmask
-    primary_dns = var.primarydns
-    secondary_dns = var.secondarydns
-  }
-  ip_v4_blocks {
-    from        = var.kvmdipfrom
-    to          = var.kvmdipto
-  }
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org.results[0].moid
-  }
-}
+#resource "intersight_ippool_pool" "intersight_ip_pool1" {
+#  name             = "${var.env}_KVM_IP_Pool"
+#  description      = "IP Pool for server KVM console"
+#  assignment_order = "sequential"
+#  ip_v4_config {
+#    gateway     = var.kvmdipgw
+#    netmask     = var.kvmdipmask
+#    primary_dns = var.primarydns
+#    secondary_dns = var.secondarydns
+#  }
+#  ip_v4_blocks {
+#    from        = var.kvmdipfrom
+#    to          = var.kvmdipto
+#  }
+#  organization {
+#    object_type = "organization.Organization"
+#    moid        = data.intersight_organization_organization.org.results[0].moid
+#  }
+#}
 
 ############################
 # UUID Pool                #
 ############################
 
-resource "intersight_uuidpool_pool" "uuidpool_pool1" {
-  name             = "${var.env}_UUID_Pool"
-  description      = "UUID Pool for all devices"
-  assignment_order = "default"
-  prefix           = "123e4567-e89b-42d3"
-  uuid_suffix_blocks {
-    object_type = "uuidpool.UuidBlock"
-    from        = var.uuidfrom
-    #to         = var.uuidto
-    size        = 128
-  }
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org.results[0].moid
-  }
-}
+#resource "intersight_uuidpool_pool" "uuidpool_pool1" {
+#  name             = "${var.env}_UUID_Pool"
+#  description      = "UUID Pool for all devices"
+#  assignment_order = "default"
+#  prefix           = "123e4567-e89b-42d3"
+#  uuid_suffix_blocks {
+#    object_type = "uuidpool.UuidBlock"
+#    from        = var.uuidfrom
+#   #to         = var.uuidto
+#    size        = 128
+#  }
+#  organization {
+#    object_type = "organization.Organization"
+#    moid        = data.intersight_organization_organization.org.results[0].moid
+#  }
+#}
 
 ############################
 # MAC A Pool               #
@@ -395,23 +395,23 @@ resource "intersight_macpool_pool" "intersight_macpool_poolB" {
 ############################
 # IQN Pool                 #
 ############################
-
-resource "intersight_iqnpool_pool" "iqnpool_pool1" {
-  name             = "${var.env}_IQN_Pool"
-  description      = "IQN Pool"
-  assignment_order = "sequential"
-  prefix           = var.iqnprefix
-  iqn_suffix_blocks {
-    object_type = "iqn.SuffixBlocks"
-    suffix      = var.iqnsuffix
-    from        = "6757"
-    size        = "100"
-  }
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org.results[0].moid
-  }
-}
+#
+#resource "intersight_iqnpool_pool" "iqnpool_pool1" {
+#  name             = "${var.env}_IQN_Pool"
+#  description      = "IQN Pool"
+#  assignment_order = "sequential"
+#  prefix           = var.iqnprefix
+#  iqn_suffix_blocks {
+#    object_type = "iqn.SuffixBlocks"
+#    suffix      = var.iqnsuffix
+#    from        = "6757"
+#    size        = "100"
+#  }
+#  organization {
+#    object_type = "organization.Organization"
+#    moid        = data.intersight_organization_organization.org.results[0].moid
+#  }
+#}
 
 ############################
 # VLAN ESXi MGMT                #
