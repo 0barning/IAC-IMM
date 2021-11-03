@@ -24,7 +24,7 @@ resource "intersight_bios_policy" "bios_policy1" {
   processor_c6report                    = "disabled"
   cpu_power_management                  = "performance"
   cpu_energy_performance                = "performance"
-  intel_vt_for_directed_io              = "disabled"
+  intel_vt_for_directed_io              = "enabled"
   numa_optimized                        = "enabled"
   organization {
     object_type = "organization.Organization"
