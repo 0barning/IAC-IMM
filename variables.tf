@@ -75,3 +75,7 @@ variable "secondarydns" {
     type = string
     description = "Secondary DNS"
 }
+variable "vmvlan" {
+    type = string
+    description = "VLAN for VM's"
+}

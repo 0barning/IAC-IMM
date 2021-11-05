@@ -30,10 +30,6 @@ resource "intersight_bios_policy" "bios_policy1" {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org.results[0].moid
   }
-  profiles {
-    object_type = "server.Profile"
-    moid = intersight_server_profile.intersight_server_profile1.moid
-  }
 }
 
 #####################
@@ -74,10 +70,6 @@ resource "intersight_boot_precision_policy" "boot_precision1" {
       Subtype = "kvm-mapped-dvd"
     })
   }
-  profiles {
-    object_type = "server.Profile"
-    moid = intersight_server_profile.intersight_server_profile1.moid
-  }
 }
 
 #####################
@@ -99,10 +91,6 @@ resource "intersight_vmedia_policy" "vmedia1" {
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org.results[0].moid
-  }
-  profiles {
-    object_type = "server.Profile"
-    moid = intersight_server_profile.intersight_server_profile1.moid
   }
 }
 
@@ -272,43 +260,6 @@ resource "intersight_vnic_lan_connectivity_policy" "intersight_vnic_lan_connecti
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org.results[0].moid
   }
-  profiles {
-    object_type = "server.Profile"
-    moid = intersight_server_profile.intersight_server_profile1.moid
-  }
-}
-
-###############################
-# Server Template             #
-###############################
-
-resource "intersight_server_profile_template" "intersight_server_profile_template1" {
-  name             = "${var.env}_Server_Template"
-  target_platform = "FIAttached"
-  action = "Unassign"
-
-  organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org.results[0].moid
-  }
-}
-
-###############################
-# Server Profile              #
-###############################
-
-resource "intersight_server_profile" "intersight_server_profile1" {
-  name   = "${var.env}_ESXi"
-  action = "No-op"
-  target_platform = "FIAttached"
-  tags {
-    key   = "server"
-    value = "demo"
-  }
- organization {
-    object_type = "organization.Organization"
-    moid        = data.intersight_organization_organization.org.results[0].moid
-  }
 }
 
 ############################
@@ -466,6 +417,63 @@ resource "intersight_fabric_eth_network_group_policy" "intersight_fabric_eth_net
   vlan_settings {
       object_type  = "vnic.VlanSettings"
       native_vlan = 1
-      allowed_vlans = "11,12,13,14"
+      allowed_vlans = "${var.vmvlan}"
+  }
+}
+
+###############################
+# Server Template             #
+###############################
+
+resource "intersight_server_profile_template" "intersight_server_profile_template1" {
+  name             = "${var.env}_Server_Template"
+  target_platform = "FIAttached"
+  action = "Unassign"
+  
+
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  policy_bucket {
+    moid        = intersight_bios_policy.bios_policy1.moid
+    object_type = "bios.Policy"
+  }
+  policy_bucket {
+    moid        = intersight_ntp_policy.intersight_ntp_policy1.moid
+    object_type = "ntp.Policy"
+  }
+  policy_bucket {
+    moid        = intersight_vmedia_policy.vmedia1.moid
+    object_type = "vmedia.Policy"
+  }
+  policy_bucket {
+    moid        = intersight_boot_precision_policy.boot_precision1.moid
+    object_type = "boot.PrecisionPolicy"
+  }
+  policy_bucket {
+    moid        = intersight_vnic_lan_connectivity_policy.intersight_vnic_lan_connectivity_policy1.moid
+    object_type = "vnic.LanConnectivityPolicy"
+  }
+}
+
+###############################
+# Server Profile              #
+###############################
+
+resource "intersight_server_profile" "intersight_server_profile1" {
+  name   = "${var.env}_ESXi"
+  action = "No-op"
+  target_platform = "FIAttached"
+  tags {
+    key   = "server"
+    value = "demo"
+  }
+#  src_template {
+#    moid        = intersight_server_profile_template.intersight_server_profile_template1.moid
+#  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
   }
 }
