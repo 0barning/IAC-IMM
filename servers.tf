@@ -290,22 +290,22 @@ resource "intersight_ippool_pool" "intersight_ip_pool1" {
 # UUID Pool                #
 ############################
 
-#resource "intersight_uuidpool_pool" "uuidpool_pool1" {
-#  name             = "${var.env}_UUID_Pool"
-#  description      = "UUID Pool for all devices"
-#  assignment_order = "default"
-#  prefix           = "123e4567-e89b-42d3"
-#  uuid_suffix_blocks {
-#    object_type = "uuidpool.UuidBlock"
-#    from        = var.uuidfrom
-#   #to         = var.uuidto
-#    size        = 128
-#  }
-#  organization {
-#    object_type = "organization.Organization"
-#    moid        = data.intersight_organization_organization.org.results[0].moid
-#  }
-#}
+resource "intersight_uuidpool_pool" "uuidpool_pool1" {
+  name             = "${var.env}_UUID_Pool"
+  description      = "UUID Pool for all devices"
+  assignment_order = "default"
+  prefix           = "123e4567-e89b-42d3"
+  uuid_suffix_blocks {
+    object_type = "uuidpool.UuidBlock"
+    from        = var.uuidfrom
+   #to         = var.uuidto
+    size        = 128
+  }
+  organization {
+    object_type = "organization.Organization"
+    moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+}
 
 ############################
 # MAC A Pool               #
@@ -422,11 +422,12 @@ resource "intersight_fabric_eth_network_group_policy" "intersight_fabric_eth_net
 }
 
 ###############################
-# Server Template             #
+# Server Template FlexPod     #
 ###############################
 
 resource "intersight_server_profile_template" "intersight_server_profile_template1" {
-  name             = "${var.env}_Server_Template"
+  name             = "${var.env}_FlexPod_Server_Template"
+  description = "Server Template for FlexPod ESXi Servers"
   target_platform = "FIAttached"
   action = "Unassign"
   
@@ -455,25 +456,49 @@ resource "intersight_server_profile_template" "intersight_server_profile_templat
     moid        = intersight_vnic_lan_connectivity_policy.intersight_vnic_lan_connectivity_policy1.moid
     object_type = "vnic.LanConnectivityPolicy"
   }
+  policy_bucket {
+    moid        = intersight_uuidpool_pool.uuidpool_pool1.moid
+    object_type = "uuidpool.Pool"
+  }
 }
 
 ###############################
-# Server Profile              #
+# Server Template FlashStack  #
 ###############################
 
-resource "intersight_server_profile" "intersight_server_profile1" {
-  name   = "${var.env}_ESXi"
-  action = "No-op"
+resource "intersight_server_profile_template" "intersight_server_profile_template2" {
+  name             = "${var.env}_FlashStack_Server_Template"
+  description = "Server Template for FlashStack ESXi Servers"
   target_platform = "FIAttached"
-  tags {
-    key   = "server"
-    value = "demo"
-  }
-#  src_template {
-#    moid        = intersight_server_profile_template.intersight_server_profile_template1.moid
-#  }
+  action = "Unassign"
+  
+
   organization {
     object_type = "organization.Organization"
     moid        = data.intersight_organization_organization.org.results[0].moid
+  }
+  policy_bucket {
+    moid        = intersight_bios_policy.bios_policy1.moid
+    object_type = "bios.Policy"
+  }
+  policy_bucket {
+    moid        = intersight_ntp_policy.intersight_ntp_policy1.moid
+    object_type = "ntp.Policy"
+  }
+  policy_bucket {
+    moid        = intersight_vmedia_policy.vmedia1.moid
+    object_type = "vmedia.Policy"
+  }
+  policy_bucket {
+    moid        = intersight_boot_precision_policy.boot_precision1.moid
+    object_type = "boot.PrecisionPolicy"
+  }
+  policy_bucket {
+    moid        = intersight_vnic_lan_connectivity_policy.intersight_vnic_lan_connectivity_policy1.moid
+    object_type = "vnic.LanConnectivityPolicy"
+  }
+  policy_bucket {
+    moid        = intersight_uuidpool_pool.uuidpool_pool1.moid
+    object_type = "uuidpool.Pool"
   }
 }
