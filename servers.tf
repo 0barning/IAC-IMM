@@ -237,10 +237,10 @@ resource "intersight_ntp_policy" "intersight_ntp_policy1" {
   description = "NTP Policy"
   enabled = true
   ntp_servers = [
-    "ntp1eu.asml.com",
-    "ntp2eu.asml.com",
-    "ntp3eu.asml.com",
-    "ntp4eu.asml.com"
+    "0.nl.pool.ntp.org",
+    "1.nl.pool.ntp.org",
+    "2.nl.pool.ntp.org",
+    "3.nl.pool.ntp.org"
   ]
   organization {
     object_type = "organization.Organization"
